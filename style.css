@@ -1,0 +1,117 @@
+.container {
+    display: grid;
+    grid-template-columns: 1.4fr 1.1fr;
+    grid-template-rows: 0.3fr 2.6fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "title title"
+      "clicker store"
+      "money store";
+    height: 100vh;
+    font-family: 'Belgrano', sans-serif;
+  }
+  
+  .clicker {
+    background-color: #f8e0ee;
+    grid-area: clicker;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Belgrano', sans-serif;
+  }
+  
+  .title {
+    background-color: lightgray;
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Belgrano', sans-serif;
+  }
+  
+  .store {
+    background-color: #efefefff;
+    grid-area: store;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-family: 'Belgrano', sans-serif;
+  }
+  
+  .store-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Belgrano', sans-serif;
+  }
+  
+  .store-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    padding: 10px;
+    font-family: 'Belgrano', sans-serif;
+  }
+  
+  .store img {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+  }
+  
+  .counter {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    padding: 10px;
+    background-color: #b0b0b0;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 80%;
+    justify-content: space-between;
+    font-family: 'Belgrano', sans-serif;
+  }
+  
+  .counter img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+  }
+  
+  .money {
+    background-color: gray;
+    grid-area: money;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Belgrano', sans-serif;
+  }
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #clickerimg {
+    transition: transform 0.3s ease;
+  }
+  
+  .clickerButton-active {
+    transform: scale(0.7);
+  }
+  

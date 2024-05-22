@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token Clicker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="title">
+      <h1 id="title" style="text-align: center;">Token Clicker</h1>
+    </div>
+    <div class="clicker">
+      <button id="clickerButton" style="border: none; background: none; padding: 0;">
+        <img id="clickerimg" src="images/token.png" alt="token" class="center" width="333.12px" height="322.56px">
+      </button>
+    </div>
+    <div class="money">
+      <div class="counter">
+        <img src="images/token.png" alt="money">
+        <span id="token-counter">0</span>
+      </div>
+      <div class="counter">
+        <img src="images/rebirthtoken.png" alt="rebirth">
+        <span id="rebirth-counter">0</span>
+      </div>
+    </div>
+    <div class="store">
+      <h1 id="store_title" style="text-align: center;">Store</h1>
+      <div class="store-item">
+        <button class="store-button" id="Single-token-upgrade" onclick="buyItem('upgrade1')">
+          Token <img src="images/token.png" alt="single token" class="small-image">
+        </button>
+        <span id="upgrade1-price">Price: 20</span>
+        <span id="upgrade1-count">Bought: 0</span>
+      </div>
+      <div class="store-item">
+        <button class="store-button" id="4-pack-of-tokens-upgrade" onclick="buyItem('upgrade2')">
+          4 pack of tokens <img src="images/4packtoken.png" alt="4 pack of tokens" class="small-image">
+        </button>
+        <span id="upgrade2-price">Price: 100</span>
+        <span id="upgrade2-count">Bought: 0</span>
+      </div>
+      <div class="store-item">
+        <button class="store-button" id="Bundle-of-tokens-upgrade" onclick="buyItem('upgrade3')">
+          Bundle of tokens <img src="images/bundleoftokens.png" alt="bundle of tokens" class="small-image">
+        </button>
+        <span id="upgrade3-price">Price: 1000</span>
+        <span id="upgrade3-count">Bought: 0</span>
+      </div>
+      <div class="store-item">
+        <button class="store-button" id="Vault-of-tokens-upgrade" onclick="buyItem('upgrade4')">
+          Vault of tokens <img src="images/vaultoftokens.png" alt="a vault full of tokens" class="small-image">
+        </button>
+        <span id="upgrade4-price">Price: 5000</span>
+        <span id="upgrade4-count">Bought: 0</span>
+      </div>
+      <div class="store-item">
+        <button class="store-button" id="Token-house-upgrade" onclick="buyItem('upgrade5')">
+          Token house <img src="images/tokenhouse.png" alt="a house made of tokens" class="small-image">
+        </button>
+        <span id="upgrade5-price">Price: 13000</span>
+        <span id="upgrade5-count">Bought: 0</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
