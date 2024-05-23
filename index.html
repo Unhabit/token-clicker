@@ -32,74 +32,49 @@
     </div>
     <div class="store">
       <h1 id="store_title" style="text-align: center;">Store</h1>
-      
-      <div class="store-item">
-        <div class="store-button" id="Single-token-upgrade">
+      <div class="buy-multiples">
+        <button onclick="setMultiplier(1)" id="x1">1x</button>
+        <button onclick="setMultiplier(10)" id="x10">10x</button>
+        <button onclick="setMultiplier(100)" id="x100">100x</button>
+      </div>
+      <button class="store-item" onclick="buyItem('upgrade1')">
+        <span id="upgrade1-count" class="bought">Bought: 0</span>
+        <div class="store-button">
           Token <img src="images/token.png" alt="single token" class="small-image">
         </div>
-        <span id="upgrade1-price">Price: 20</span>
-        <span id="upgrade1-count">Bought: 0</span>
-        <div class="quantity-buttons">
-          <button onclick="buyItem('upgrade1', 1)">1x</button>
-          <button onclick="buyItem('upgrade1', 10)">10x</button>
-          <button onclick="buyItem('upgrade1', 100)">100x</button>
-        </div>
-      </div>
-
-      <div class="store-item">
-        <div class="store-button" id="4-pack-of-tokens-upgrade">
+        <span id="upgrade1-price" class="price">Price: 20</span>
+      </button>
+      <button class="store-item" onclick="buyItem('upgrade2')">
+        <span id="upgrade2-count" class="bought">Bought: 0</span>
+        <div class="store-button">
           4 pack of tokens <img src="images/4packtoken.png" alt="4 pack of tokens" class="small-image">
         </div>
-        <span id="upgrade2-price">Price: 100</span>
-        <span id="upgrade2-count">Bought: 0</span>
-        <div class="quantity-buttons">
-          <button onclick="buyItem('upgrade2', 1)">1x</button>
-          <button onclick="buyItem('upgrade2', 10)">10x</button>
-          <button onclick="buyItem('upgrade2', 100)">100x</button>
-        </div>
-      </div>
-
-      <div class="store-item">
-        <div class="store-button" id="Bundle-of-tokens-upgrade">
+        <span id="upgrade2-price" class="price">Price: 100</span>
+      </button>
+      <button class="store-item" onclick="buyItem('upgrade3')">
+        <span id="upgrade3-count" class="bought">Bought: 0</span>
+        <div class="store-button">
           Bundle of tokens <img src="images/bundleoftokens.png" alt="bundle of tokens" class="small-image">
         </div>
-        <span id="upgrade3-price">Price: 1000</span>
-        <span id="upgrade3-count">Bought: 0</span>
-        <div class="quantity-buttons">
-          <button onclick="buyItem('upgrade3', 1)">1x</button>
-          <button onclick="buyItem('upgrade3', 10)">10x</button>
-          <button onclick="buyItem('upgrade3', 100)">100x</button>
-        </div>
-      </div>
-
-      <div class="store-item">
-        <div class="store-button" id="Vault-of-tokens-upgrade">
+        <span id="upgrade3-price" class="price">Price: 1000</span>
+      </button>
+      <button class="store-item" onclick="buyItem('upgrade4')">
+        <span id="upgrade4-count" class="bought">Bought: 0</span>
+        <div class="store-button">
           Vault of tokens <img src="images/vaultoftokens.png" alt="a vault full of tokens" class="small-image">
         </div>
-        <span id="upgrade4-price">Price: 5000</span>
-        <span id="upgrade4-count">Bought: 0</span>
-        <div class="quantity-buttons">
-          <button onclick="buyItem('upgrade4', 1)">1x</button>
-          <button onclick="buyItem('upgrade4', 10)">10x</button>
-          <button onclick="buyItem('upgrade4', 100)">100x</button>
-        </div>
-      </div>
-
-      <div class="store-item">
-        <div class="store-button" id="Token-house-upgrade">
+        <span id="upgrade4-price" class="price">Price: 5000</span>
+      </button>
+      <button class="store-item" onclick="buyItem('upgrade5')">
+        <span id="upgrade5-count" class="bought">Bought: 0</span>
+        <div class="store-button">
           Token house <img src="images/tokenhouse.png" alt="a house made of tokens" class="small-image">
         </div>
-        <span id="upgrade5-price">Price: 13000</span>
-        <span id="upgrade5-count">Bought: 0</span>
-        <div class="quantity-buttons">
-          <button onclick="buyItem('upgrade5', 1)">1x</button>
-          <button onclick="buyItem('upgrade5', 10)">10x</button>
-          <button onclick="buyItem('upgrade5', 100)">100x</button>
-        </div>
-      </div>
-
+        <span id="upgrade5-price" class="price">Price: 13000</span>
+      </button>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

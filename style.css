@@ -21,45 +21,6 @@
   font-family: 'Belgrano', sans-serif;
 }
 
-#clickerimg {
-  width: 400px; /* Adjust as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "title"
-      "clicker"
-      "money"
-      "store";
-    padding: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  #clickerimg {
-    width: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  .store-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 768px) {
-  .quantity-buttons {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-}
-
 .title {
   background-color: lightgray;
   grid-area: title;
@@ -90,13 +51,21 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-family: 'Belgrano', sans-serif;
+  cursor: pointer;
+}
+
+.store-item:hover {
+  background-color: #f0f0f0;
+}
+
+.store-item:focus {
+  outline: none;
 }
 
 .store-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   background: none;
   border: none;
   font-size: 1.2em;
@@ -104,19 +73,22 @@
   font-family: 'Belgrano', sans-serif;
 }
 
-.quantity-buttons button {
-  margin-left: 5px;
-  font-size: 0.8em;
-}
-
-.quantity-buttons {
-  display: flex;
-}
-
 .store img {
   width: 50px;
   height: auto;
   margin-left: 10px;
+}
+
+.store-item span {
+  flex-shrink: 0; /* Prevent the spans from shrinking */
+}
+
+.store-item .price {
+  margin: 0 auto; /* Center the price */
+}
+
+.store-item .bought {
+  margin-right: auto; /* Align the bought count to the left */
 }
 
 .counter {
@@ -161,4 +133,31 @@
 
 .clickerButton-active {
   transform: scale(0.7);
+}
+
+.buy-multiples {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.buy-multiples button {
+  padding: 10px 20px;
+  font-size: 1em;
+  font-family: 'Belgrano', sans-serif;
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buy-multiples button:hover {
+  background-color: #bbb;
+}
+
+.buy-multiples button.active {
+  background-color: #888;
+  border-color: #666;
+  color: white;
 }
