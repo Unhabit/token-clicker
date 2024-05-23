@@ -7,8 +7,8 @@
   <title>Token Clicker</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -32,44 +32,74 @@
     </div>
     <div class="store">
       <h1 id="store_title" style="text-align: center;">Store</h1>
+      
       <div class="store-item">
-        <button class="store-button" id="Single-token-upgrade" onclick="buyItem('upgrade1')">
+        <div class="store-button" id="Single-token-upgrade">
           Token <img src="images/token.png" alt="single token" class="small-image">
-        </button>
+        </div>
         <span id="upgrade1-price">Price: 20</span>
         <span id="upgrade1-count">Bought: 0</span>
+        <div class="quantity-buttons">
+          <button onclick="buyItem('upgrade1', 1)">1x</button>
+          <button onclick="buyItem('upgrade1', 10)">10x</button>
+          <button onclick="buyItem('upgrade1', 100)">100x</button>
+        </div>
       </div>
+
       <div class="store-item">
-        <button class="store-button" id="4-pack-of-tokens-upgrade" onclick="buyItem('upgrade2')">
+        <div class="store-button" id="4-pack-of-tokens-upgrade">
           4 pack of tokens <img src="images/4packtoken.png" alt="4 pack of tokens" class="small-image">
-        </button>
+        </div>
         <span id="upgrade2-price">Price: 100</span>
         <span id="upgrade2-count">Bought: 0</span>
+        <div class="quantity-buttons">
+          <button onclick="buyItem('upgrade2', 1)">1x</button>
+          <button onclick="buyItem('upgrade2', 10)">10x</button>
+          <button onclick="buyItem('upgrade2', 100)">100x</button>
+        </div>
       </div>
+
       <div class="store-item">
-        <button class="store-button" id="Bundle-of-tokens-upgrade" onclick="buyItem('upgrade3')">
+        <div class="store-button" id="Bundle-of-tokens-upgrade">
           Bundle of tokens <img src="images/bundleoftokens.png" alt="bundle of tokens" class="small-image">
-        </button>
+        </div>
         <span id="upgrade3-price">Price: 1000</span>
         <span id="upgrade3-count">Bought: 0</span>
+        <div class="quantity-buttons">
+          <button onclick="buyItem('upgrade3', 1)">1x</button>
+          <button onclick="buyItem('upgrade3', 10)">10x</button>
+          <button onclick="buyItem('upgrade3', 100)">100x</button>
+        </div>
       </div>
+
       <div class="store-item">
-        <button class="store-button" id="Vault-of-tokens-upgrade" onclick="buyItem('upgrade4')">
+        <div class="store-button" id="Vault-of-tokens-upgrade">
           Vault of tokens <img src="images/vaultoftokens.png" alt="a vault full of tokens" class="small-image">
-        </button>
+        </div>
         <span id="upgrade4-price">Price: 5000</span>
         <span id="upgrade4-count">Bought: 0</span>
+        <div class="quantity-buttons">
+          <button onclick="buyItem('upgrade4', 1)">1x</button>
+          <button onclick="buyItem('upgrade4', 10)">10x</button>
+          <button onclick="buyItem('upgrade4', 100)">100x</button>
+        </div>
       </div>
+
       <div class="store-item">
-        <button class="store-button" id="Token-house-upgrade" onclick="buyItem('upgrade5')">
+        <div class="store-button" id="Token-house-upgrade">
           Token house <img src="images/tokenhouse.png" alt="a house made of tokens" class="small-image">
-        </button>
+        </div>
         <span id="upgrade5-price">Price: 13000</span>
         <span id="upgrade5-count">Bought: 0</span>
+        <div class="quantity-buttons">
+          <button onclick="buyItem('upgrade5', 1)">1x</button>
+          <button onclick="buyItem('upgrade5', 10)">10x</button>
+          <button onclick="buyItem('upgrade5', 100)">100x</button>
+        </div>
       </div>
+
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
