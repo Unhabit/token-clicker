@@ -18,10 +18,14 @@
         <span id="tokens-per-click">Tokens per Click: 1</span>
         <br>
         <span id="tokens-per-second">Tokens per Second: 0</span>
+        <br>
+        <button onclick="muteMusic()">Mute Music</button>
+        <br>
+        <button onclick="muteAllSFX()">Mute All SFX</button>
       </div>
     </div>
     <div class="clicker">
-      <button id="clickerButton" style="border: none; background: none; padding: 0;">
+      <button id="clickerButton" onclick="playTokenSFX()" style="border: none; background: none; padding: 0;">
         <img id="clickerimg" src="images/token.png" alt="token" class="center">
       </button>
     </div>
@@ -86,7 +90,7 @@
       </button>
     </div>
   </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

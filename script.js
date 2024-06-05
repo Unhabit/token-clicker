@@ -1,3 +1,32 @@
+let bgMusic = new Howl({
+    src: ["SFX/crickets.mp3"],
+    autoplay: true,
+    volume: 0.20,
+    loop: true
+});
+
+function muteMusic(){
+    bgMusic.pause();
+}
+
+let tokenSFX = new Howl({
+    src: ["SFX/token.wav"],
+    volume: 0.08
+});
+
+function playTokenSFX() {
+    tokenSFX.play();
+}
+
+const upgradeSFX = {
+    upgrade1: new Howl({ src: ["SFX/upgrade1.wav"], volume: 0.08}),
+    upgrade2: new Howl({ src: ["SFX/upgrade2.mp3"], volume: 0.08 }),
+    upgrade3: new Howl({ src: ["SFX/upgrade3.mp3"], volume: 0.08 }),
+    upgrade4: new Howl({ src: ["SFX/upgrade4.wav"], volume: 0.08 }),
+    upgrade5: new Howl({ src: ["SFX/upgrade5.mp3"], volume: 0.08 }),
+    upgrade6: new Howl({ src: ["SFX/upgrade6.mp3"], volume: 0.08 })
+};
+
 let tokenCounter = 0;
 let tokensPerClick = 1;
 let buyMultiplier = 1;
@@ -57,6 +86,9 @@ function buyItem(upgrade) {
         tokenCounter -= totalPrice;
         tokenCounterSpan.textContent = tokenCounter;
         upgrades[upgrade].count += quantity;
+        
+        //sound thing
+        upgradeSFX[upgrade].play();
 
         // Apply click bonus if the upgrade has one
         if (upgrades[upgrade].clickBonus) {
