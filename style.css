@@ -169,3 +169,27 @@
     border-color: #666;
     color: white;
 }
+
+.rebirth-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #d4af37;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Belgrano', sans-serif;
+}
+
+.rebirth-button:hover {
+    background-color: #b89e30;
+}
+
+.rebirth-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.css">
 </head>
 <body>
   <div class="container">
@@ -36,6 +37,7 @@
         <img src="images/rebirthtoken.png" alt="rebirth">
         <span id="rebirth-counter">0</span>
       </div>
+      <button class="rebirth-button" id="rebirthButton" onclick="rebirth()">Rebirth (Cost: 100,000 tokens)</button>
     </div>
     <div class="store">
       <h1 id="store_title" style="text-align: center;">Store</h1>
@@ -88,6 +90,13 @@
       </button>
     </div>
   </div>
+  <script>
+    var wow = new WOW({
+      boxClass: 'wow',
+      animateClass: 'animate__animated'
+    });
+    wow.init();
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
   <script src="script.js"></script>
 </body>

@@ -5,7 +5,7 @@ let bgMusic = new Howl({
     loop: true
 });
 
-function muteMusic(){
+function muteMusic() {
     bgMusic.pause();
 }
 
@@ -19,7 +19,7 @@ function playTokenSFX() {
 }
 
 const upgradeSFX = {
-    upgrade1: new Howl({ src: ["SFX/upgrade1.wav"], volume: 0.08}),
+    upgrade1: new Howl({ src: ["SFX/upgrade1.wav"], volume: 0.08 }),
     upgrade2: new Howl({ src: ["SFX/upgrade2.mp3"], volume: 0.08 }),
     upgrade3: new Howl({ src: ["SFX/upgrade3.mp3"], volume: 0.08 }),
     upgrade4: new Howl({ src: ["SFX/upgrade4.wav"], volume: 0.08 }),
@@ -30,29 +30,31 @@ const upgradeSFX = {
 let tokenCounter = 0;
 let tokensPerClick = 1;
 let buyMultiplier = 1;
+let rebirthCounter = 0;
+let rebirthCost = 100000; // Initial rebirth cost
 const tokenCounterSpan = document.getElementById('token-counter');
 const tokensPerClickSpan = document.getElementById('tokens-per-click');
 const tokensPerSecondSpan = document.getElementById('tokens-per-second');
+const rebirthCounterSpan = document.getElementById('rebirth-counter');
+const rebirthButton = document.getElementById('rebirthButton');
 
 document.getElementById('clickerButton').addEventListener('click', () => {
     tokenCounter += tokensPerClick;
     tokenCounterSpan.textContent = tokenCounter;
-    // Adding scaling effect
     document.getElementById('clickerimg').style.transform = 'scale(0.7)';
     setTimeout(() => {
         document.getElementById('clickerimg').style.transform = 'scale(1)';
-    }, 100); // Adjust the time for the scaling animation
+    }, 100);
     updateButtonStates();
 });
 
-// Code for upgrades
 const upgrades = {
-    upgrade1: { price: 30, count: 0, priceSpan: 'upgrade1-price', countSpan: 'upgrade1-count', rate: 1 },
-    upgrade2: { price: 100, count: 0, priceSpan: 'upgrade2-price', countSpan: 'upgrade2-count', rate: 4 },
-    upgrade3: { price: 500, count: 0, priceSpan: 'upgrade3-price', countSpan: 'upgrade3-count', rate: 10 },
-    upgrade4: { price: 1500, count: 0, priceSpan: 'upgrade4-price', countSpan: 'upgrade4-count', rate: 40 },
-    upgrade5: { price: 4000, count: 0, priceSpan: 'upgrade5-price', countSpan: 'upgrade5-count', rate: 100 },
-    upgrade6: { price: 15, count: 0, priceSpan: 'upgrade6-price', countSpan: 'upgrade6-count', rate: 0, clickBonus: 1 }
+    upgrade1: { price: 30, count: 0, priceSpan: 'upgrade1-price', countSpan: 'upgrade1-count', rate: 1, initialPrice: 30 },
+    upgrade2: { price: 100, count: 0, priceSpan: 'upgrade2-price', countSpan: 'upgrade2-count', rate: 4, initialPrice: 100 },
+    upgrade3: { price: 500, count: 0, priceSpan: 'upgrade3-price', countSpan: 'upgrade3-count', rate: 10, initialPrice: 500 },
+    upgrade4: { price: 1500, count: 0, priceSpan: 'upgrade4-price', countSpan: 'upgrade4-count', rate: 40, initialPrice: 1500 },
+    upgrade5: { price: 4000, count: 0, priceSpan: 'upgrade5-price', countSpan: 'upgrade5-count', rate: 100, initialPrice: 4000 },
+    upgrade6: { price: 15, count: 0, priceSpan: 'upgrade6-price', countSpan: 'upgrade6-count', rate: 0, clickBonus: 1, initialPrice: 15 }
 };
 
 function setMultiplier(multiplier) {
@@ -87,10 +89,8 @@ function buyItem(upgrade) {
         tokenCounterSpan.textContent = tokenCounter;
         upgrades[upgrade].count += quantity;
         
-        //sound thing
         upgradeSFX[upgrade].play();
 
-        // Apply click bonus if the upgrade has one
         if (upgrades[upgrade].clickBonus) {
             tokensPerClick += upgrades[upgrade].clickBonus * quantity;
             updateStats();
@@ -98,7 +98,6 @@ function buyItem(upgrade) {
 
         document.getElementById(upgrades[upgrade].countSpan).innerText = `Bought: ${upgrades[upgrade].count}`;
 
-        // Increase the price of the upgrade by a factor of 1.2
         upgrades[upgrade].price = Math.round(upgrades[upgrade].price * 1.2);
         updatePrices();
         updateButtonStates();
@@ -115,6 +114,7 @@ function updateButtonStates() {
             button.disabled = true;
         }
     }
+    rebirthButton.disabled = tokenCounter < rebirthCost;
 }
 
 function updateStats() {
@@ -124,7 +124,34 @@ function updateStats() {
     for (const upgrade in upgrades) {
         tokensPerSecond += upgrades[upgrade].count * upgrades[upgrade].rate;
     }
+    tokensPerSecond *= Math.pow(2, rebirthCounter);
     tokensPerSecondSpan.textContent = `Tokens per Second: ${tokensPerSecond}`;
+}
+
+function rebirth() {
+    if (tokenCounter >= rebirthCost) {
+        rebirthCounter++;
+        rebirthCounterSpan.textContent = rebirthCounter;
+
+        tokenCounter = 0;
+        tokenCounterSpan.textContent = tokenCounter;
+
+        for (const upgrade in upgrades) {
+            upgrades[upgrade].count = 0;
+            upgrades[upgrade].price = upgrades[upgrade].initialPrice;
+            document.getElementById(upgrades[upgrade].countSpan).innerText = `Bought: 0`;
+        }
+
+        tokensPerClick *= 2;
+        updateStats();
+
+        updatePrices();
+        updateButtonStates();
+
+        // Increase rebirth cost by 1.5x
+        rebirthCost = Math.round(rebirthCost * 1.5);
+        rebirthButton.textContent = `Rebirth (Cost: ${rebirthCost} tokens)`;
+    }
 }
 
 // Initialize the default multiplier button as active and update prices
@@ -133,7 +160,9 @@ updatePrices();
 updateButtonStates();
 updateStats();
 
-// Set interval for generating tokens from upgrades
+// Update rebirth button text initially
+rebirthButton.textContent = `Rebirth (Cost: ${rebirthCost} tokens)`;
+
 setInterval(() => {
     let tokensPerSecond = 0;
     for (const upgrade in upgrades) {
