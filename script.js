@@ -38,6 +38,19 @@ const tokensPerSecondSpan = document.getElementById('tokens-per-second');
 const rebirthCounterSpan = document.getElementById('rebirth-counter');
 const rebirthButton = document.getElementById('rebirthButton');
 
+function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.style.left = Math.random() * 100 + '%';
+    snowflake.style.animationDelay = Math.random() * 2 + 's';
+    snowflake.innerHTML = '<img src="images/token.png" style="width:20px;" />';
+    document.body.appendChild(snowflake);
+    
+    setTimeout(() => {
+        snowflake.remove();
+    }, 10000); // Remove the snowflake after it has fallen
+}
+
 document.getElementById('clickerButton').addEventListener('click', () => {
     tokenCounter += tokensPerClick;
     tokenCounterSpan.textContent = tokenCounter;
@@ -46,6 +59,7 @@ document.getElementById('clickerButton').addEventListener('click', () => {
         document.getElementById('clickerimg').style.transform = 'scale(1)';
     }, 100);
     updateButtonStates();
+    createSnowflake(); // Create a snowflake on each click
 });
 
 const upgrades = {

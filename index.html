@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="clicker">
-      <button id="clickerButton" onclick="playTokenSFX()" style="border: none; background: none; padding: 0;">
+      <button id="clickerButton" onclick="playTokenSFX()" style="border: none; background: none; padding: 0; width: 100%; height: 100%;">
         <img id="clickerimg" src="images/token.png" alt="token" class="center">
       </button>
     </div>
@@ -90,13 +90,9 @@
       </button>
     </div>
   </div>
-  <script>
-    var wow = new WOW({
-      boxClass: 'wow',
-      animateClass: 'animate__animated'
-    });
-    wow.init();
-  </script>
+
+  <div class="snowflakes"></div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
   <script src="script.js"></script>
 </body>
